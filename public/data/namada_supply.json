@@ -8171,5 +8171,77 @@
             }
         ],
         "Native_Supply_NAM": "1062278406.602833"
+  },
+    {
+        "Date": "10/20/2025",
+        "Total_Supply": [
+            {
+                "id": "Namada",
+                "totalSupply": "1098852693.025684",
+                "shieldedSupply": "48836068.014766",
+                "transparentSupply": "1050016625.010918"
+            },
+            {
+                "id": "Atom",
+                "totalSupply": "125441529932",
+                "shieldedSupply": "125196049181",
+                "transparentSupply": "245480751"
+            },
+            {
+                "id": "Osmo",
+                "totalSupply": "2534060307695",
+                "shieldedSupply": "2528880921680",
+                "transparentSupply": "5179386015"
+            },
+            {
+                "id": "Tia",
+                "totalSupply": "101331165473",
+                "shieldedSupply": "101072001793",
+                "transparentSupply": "259163680"
+            },
+            {
+                "id": "Penumbra",
+                "totalSupply": "34340314094",
+                "shieldedSupply": "34333675000",
+                "transparentSupply": "6639094"
+            },
+            {
+                "id": "Nym",
+                "totalSupply": "4957121499",
+                "shieldedSupply": "4938014749",
+                "transparentSupply": "19106750"
+            },
+            {
+                "id": "Neutron",
+                "totalSupply": "1326121711",
+                "shieldedSupply": "1227933296",
+                "transparentSupply": "98188415"
+            },
+            {
+                "id": "Usdc",
+                "totalSupply": "1117780404990",
+                "shieldedSupply": "1116251389897",
+                "transparentSupply": "1529015093"
+            },
+            {
+                "id": "stOsmo",
+                "totalSupply": "484654726436",
+                "shieldedSupply": "484651896436",
+                "transparentSupply": "2830000"
+            },
+            {
+                "id": "stAtom",
+                "totalSupply": "12940112223",
+                "shieldedSupply": "12929170563",
+                "transparentSupply": "10941660"
+            },
+            {
+                "id": "stTia",
+                "totalSupply": "41380572003",
+                "shieldedSupply": "41378079358",
+                "transparentSupply": "2492645"
+            }
+        ],
+        "Native_Supply_NAM": "1062510402.768217"
    }
 ]
