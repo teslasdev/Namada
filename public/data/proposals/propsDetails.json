@@ -16,7 +16,7 @@
                 "Activation_Epoch": "755",
                 "Status": "ended",
                 "Data": "94B466692129203AF0D794E9F0CA83143A69587F6771413FB24345EAA5AA8989",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 23 involved 2100 addresses with resuts: 2073 yays | 13 nays | 14 abstains"
             },
             {
                 "Id": 24,
@@ -32,7 +32,7 @@
                 "Activation_Epoch": "757",
                 "Status": "ended",
                 "Data": "D915550A5FAE3DBA36FEB204F03799D9690A0512B0CDF2A7B833A7829E18758D",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 24 involved 2520 addresses with resuts: 2497 yays | 12 nays | 11 abstains"
             },
             {
                 "Id": 25,
@@ -48,7 +48,7 @@
                 "Activation_Epoch": "766",
                 "Status": "ended",
                 "Data": "C60D2B2158EBB5B0B964F0529FDB2B3D07CE7292D0918C08100700692C964499",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 25 involved 4347 addresses with resuts: 4317 yays | 15 nays | 15 abstains"
             },
             {
                 "Id": 26,
@@ -64,7 +64,7 @@
                 "Activation_Epoch": "796",
                 "Status": "ended",
                 "Data": "96BAB710E635BCB0874F01FAFDCDC4E34150758C54B4D684A36038E5F4494DF4",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 26 involved 3641 addresses with resuts: 3611 yays | 17 nays | 13 abstains"
             },
             {
                 "Id": 27,
@@ -80,7 +80,7 @@
                 "Activation_Epoch": "843",
                 "Status": "ended",
                 "Data": "58C2E1B7362765E7248388A299FB112F89B70970A7ADC0B801A0E2785BCF5976",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 27 involved 1103 addresses with resuts: 1093 yays | 6 nays | 4 abstains"
             },
             {
                 "Id": 28,
@@ -102,7 +102,7 @@
                 "Activation_Epoch": "892",
                 "Status": "ended",
                 "Data": "795BB46859CC225E3E347F1A6CB1DE0784F3658BDE1A779DC2E115A52CD666E2",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 28 involved 1000 addresses with resuts: 993 yays | 2 nays | 5 abstains"
             },
             {
                 "Id": 29,
@@ -123,7 +123,7 @@
                 "Activation_Epoch": "980",
                 "Status": "ended",
                 "Data": "",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 29 involved 889 addresses with resuts: 842 yays | 9 nays | 38 abstains"
             },
             {
                 "Id": 30,
@@ -139,7 +139,7 @@
                 "Activation_Epoch": "1098",
                 "Status": "ended",
                 "Data": "E3FBA2A2D8C42894822020628F8D27B6857EDC5A5373A2B327DBCE1A2AA0DC2D",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 30 involved 335 addresses with resuts: 332 yays | 2 nays | 1 abstains"
             },
             {
                 "Id": 31,
@@ -154,7 +154,7 @@
                 "Activation_Epoch": "1174",
                 "Status": "ended",
                 "Data": "B21D4872EF9BA948874D53EC5F175EDE3CA4AA10F52C42E7AF099D78A86BF890",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 31 involved 304 addresses with resuts: 291 yays | 11 nays | 2 abstains"
             },
             {
                 "Id": 32,
@@ -170,7 +170,7 @@
                 "Activation_Epoch": "1174",
                 "Status": "ended",
                 "Data": "EEF0B745190917D5C64E1F042E0F8EB9BD062D54522B84C42957F1194D989DD2",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 32 involved 302 addresses with resuts: 291 yays | 7 nays | 4 abstains"
             },
             {
                 "Id": 33,
@@ -187,7 +187,7 @@
                 "Activation_Epoch": "1313",
                 "Status": "on-going",
                 "Data": "B03AF811B89788007959A66B9E8547D576D66ADB8172FCD10A3B2B923CDF6D0B",
-                "Result": "Prop 33 involved 116 addresses with resuts: 116 yays | 0 nays | 0 abstains"
+                "Result": "Prop 33 involved 117 addresses with resuts: 117 yays | 0 nays | 0 abstains"
             }
         ]
     }
