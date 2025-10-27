@@ -1,6 +1,6 @@
 [
     {
-        "Last_committed_epoch": 1306,
+        "Last_committed_epoch": 1312,
         "Proposal": [
             {
                 "Id": 24,
@@ -169,9 +169,9 @@
                 "Start_Epoch": "1281",
                 "End_Epoch": "1312",
                 "Activation_Epoch": "1313",
-                "Status": "on-going",
+                "Status": "ended",
                 "Data": "B03AF811B89788007959A66B9E8547D576D66ADB8172FCD10A3B2B923CDF6D0B",
-                "Result": "Prop 33 involved 337 addresses with resuts: 326 yays | 9 nays | 2 abstains"
+                "Result": "Prop 33 involved 352 addresses with resuts: 341 yays | 9 nays | 2 abstains"
             },
             {
                 "Id": 34,
@@ -185,9 +185,9 @@
                 "Start_Epoch": "1289",
                 "End_Epoch": "1309",
                 "Activation_Epoch": "1310",
-                "Status": "on-going",
+                "Status": "ended",
                 "Data": "286644C8096E0520C84624736BB0349681FB17B5677EB3BAB267463B4DFF4811",
-                "Result": "Prop 34 involved 276 addresses with resuts: 268 yays | 5 nays | 3 abstains"
+                "Result": "Prop 34 involved 288 addresses with resuts: 280 yays | 5 nays | 3 abstains"
             }
         ]
     }
