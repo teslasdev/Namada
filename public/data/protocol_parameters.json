@@ -77,33 +77,33 @@
                         "per_gas_unit": "1 per gas unit"
                     }
                 ],
-                "Gas_scale": 0.000001 per gas unit,
-                "Is_native_token_transferable": 50000
+                "Gas_scale": 50000,
+                "Is_native_token_transferable": true
             }
         ],
         "Proof_Of_Stake_Parmeters": [
             {
-                "Pipline_length": "roof of Stake parameters",
-                "Unbonding_lenth": "2 epochs",
-                "Cubic_slashing_window": "53 epochs",
-                "Max_consensus_validator_slots": 1 epoch,
-                "Validator_stake_threshold": "255",
-                "Duplicate_vote_minimum_slash_rate": 1000.000000 native tokens,
+                "Pipline_length": "2 epochs",
+                "Unbonding_lenth": "53 epochs",
+                "Cubic_slashing_window": "1 epoch",
+                "Max_consensus_validator_slots": 255,
+                "Validator_stake_threshold": "1000.000000 native tokens",
+                "Duplicate_vote_minimum_slash_rate": 0.001,
                 "Light_client_attack_minimum_slash_rate": 0.001,
-                "Liveness_window": "0.001",
-                "Liveness_threshold": 10000 blocks,
-                "Block_proposer_reward": 0.1,
-                "Block_vote_reward": 0.125,
-                "Max_inflation_rate": 0.1,
-                "Target_staked_ratio": 0.0275,
-                "Inflation_kP_gain": 0.45,
+                "Liveness_window": "10000 blocks",
+                "Liveness_threshold": 0.1,
+                "Block_proposer_reward": 0.125,
+                "Block_vote_reward": 0.1,
+                "Max_inflation_rate": 0.0275,
+                "Target_staked_ratio": 0.45,
+                "Inflation_kP_gain": 0.5,
                 "Inflation_kD_gain": 0.5,
-                "Votes_per_raw_native_token": 0.5
+                "Votes_per_raw_native_token": 1
             }
         ],
         "IBC_Parameters": [
             {
-                "Default_mint_limit": BC parameters,
+                "Default_mint_limit": 0,
                 "Default_per_epoch_throughput_limit": 0
             }
         ]
