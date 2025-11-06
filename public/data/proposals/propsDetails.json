@@ -1,6 +1,6 @@
 [
     {
-        "Last_committed_epoch": 1335,
+        "Last_committed_epoch": 1349,
         "Proposal": [
             {
                 "Id": 25,
@@ -185,9 +185,9 @@
                 "Start_Epoch": "1324",
                 "End_Epoch": "1349",
                 "Activation_Epoch": "1350",
-                "Status": "on-going",
+                "Status": "ended",
                 "Data": "F8CAF64BA1131A59882E859D39D4272230BC643C6D696F24A2241BAB5F06F880",
-                "Result": "Prop 35 involved 185 addresses with resuts: 185 yays | 0 nays | 0 abstains"
+                "Result": "Prop 35 involved 311 addresses with resuts: 311 yays | 0 nays | 0 abstains"
             }
         ]
     }
