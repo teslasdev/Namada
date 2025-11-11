@@ -1,6 +1,6 @@
 [
     {
-        "Last_committed_epoch": 1364,
+        "Last_committed_epoch": 1370,
         "Proposal": [
             {
                 "Id": 26,
@@ -188,7 +188,7 @@
                 "Activation_Epoch": "1389",
                 "Status": "on-going",
                 "Data": "72DF5BEF3E5924A447A8085E5DAD2608E3C7A3596812B6F05F88684C5C36021A",
-                "Result": "Prop 36 involved 24 addresses with resuts: 17 yays | 7 nays | 0 abstains"
+                "Result": "Prop 36 involved 161 addresses with resuts: 140 yays | 17 nays | 4 abstains"
             }
         ]
     }
