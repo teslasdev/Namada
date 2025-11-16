@@ -1,6 +1,171 @@
 [
     {
-        "Last_committed_epoch": 1384,
+        "Last_committed_epoch": 1391,
+        "Proposal": [
+            {
+                "Id": 26,
+                "Type": "Default with Wasm",
+                "Author": "tnam1qqgll8x8rz9fvtdv8q6n985za0vjvgyu0udxh7fp",
+                "Content": {
+  "details": "Turning on IBC transfers for the native token NAM. This allows NAM to be transferred out of Namada over IBC and back into Namada the same way. The per-epoch throughput limit is set to 20M NAM.\n\nThe code used to generate the WASM attached to this proposal can be found here: https://github.com/anoma/namada-governance-upgrades/blob/ea7e6f6d413a4f8399cb995e782b4aadbe6dda4f/phase5b/src/lib.rs.\n\nPlease see the forum discussion linked here for more details.",
+  "discussions-to": "https://forum.namada.net/t/proposal-enable-ibc-transfers-of-nam-phase-5b/1727",
+  "title": "Phase 5 IBC transfers for NAM"
+},
+                "Start_Epoch": "783",
+                "End_Epoch": "795",
+                "Activation_Epoch": "796",
+                "Status": "ended",
+                "Data": "96BAB710E635BCB0874F01FAFDCDC4E34150758C54B4D684A36038E5F4494DF4",
+                "Result": "Prop 26 involved 3641 addresses with resuts: 3611 yays | 17 nays | 13 abstains"
+            },
+            {
+                "Id": 27,
+                "Type": "Default with Wasm",
+                "Author": "tnam1qqgll8x8rz9fvtdv8q6n985za0vjvgyu0udxh7fp",
+                "Content": {
+  "details": "This proposal is a follow-up to the failed Proposal #22, which was voted down due to concerns about the values in storage for certain `precision` keys and their associated MASP data. This proposal updates these values to more safely ensure that shielded inflation is actually minted once enabled, given arbitrary amounts of tokens in the shielded pool.\n\nThe code used to generate the WASM attached to this proposal can be found here: https://github.com/anoma/namada-governance-upgrades/blob/374a2a919e4119f2cb99e417926a3ef2bb3c8ea4/pre-phase4/src/lib.rs.\n\nSee the forum discussion for more details.",
+  "discussions-to": "https://forum.namada.net/t/proposal-migration-before-enabling-shielded-rewards-phase-4/1776",
+  "title": "Migrate shielded data ahead of shielded rewards (Phase 4)"
+},
+                "Start_Epoch": "825",
+                "End_Epoch": "842",
+                "Activation_Epoch": "843",
+                "Status": "ended",
+                "Data": "58C2E1B7362765E7248388A299FB112F89B70970A7ADC0B801A0E2785BCF5976",
+                "Result": "Prop 27 involved 1103 addresses with resuts: 1093 yays | 6 nays | 4 abstains"
+            },
+            {
+                "Id": 28,
+                "Type": "Default with Wasm",
+                "Author": "tnam1qq92nknz9u82aewcw3k0nrp7t7d5ytgskcjkyduk",
+                "Content": {
+  "abstract": "",
+  "authors": "Veil",
+  "created": "2025-07-08T10:47:03.580431",
+  "details": "This proposal is to enable shielding rewards for an initial set of seven assets: Cosmos Hub (ATOM), Osmosis (OSMO), Celestia (TIA), the Stride liquid-staked versions of these tokens, and Noble’s USDC. Alongside this activation, it will set initial starting points for several key configurable parameters, including the maximum inflation rate, token deposit targets, Proportional Gain, and Derivative Gain.\n\nIt should be clearly noted that these values are just initial settings, and they are fully configurable. The community can revisit and adjust these parameters through governance at any point in the future as needed.",
+  "discussions-to": "https://forum.namada.net/t/phase-4-proposal-discussion/1604",
+  "license": "SPQR",
+  "motivation": "",
+  "requires": "",
+  "title": "Phase 4: enable shielding rewards"
+},
+                "Start_Epoch": "873",
+                "End_Epoch": "891",
+                "Activation_Epoch": "892",
+                "Status": "ended",
+                "Data": "795BB46859CC225E3E347F1A6CB1DE0784F3658BDE1A779DC2E115A52CD666E2",
+                "Result": "Prop 28 involved 1000 addresses with resuts: 993 yays | 2 nays | 5 abstains"
+            },
+            {
+                "Id": 29,
+                "Type": "PGF funding",
+                "Author": "tnam1qztdx4y7a3wn0qmgcgtrty237vcnp9f9hs3rt3k7",
+                "Content": {
+  "abstract": "Proposing a one-year, cPGF validator subsidy to support 166 active validators.\nThe goal is to extend operator runway, sustain diversity, and prepare for a more targeted meritocratic reward model.",
+  "authors": "Gavin Birch (Luminara)",
+  "created": "2025-07-25T23:51:00.000Z",
+  "details": "This is a Continuous Public Goods Funding (cPGF) proposal to use ~0.67% of the annual PGF budget to allocate NAM to the current active set of Namada validators for year. If approved, **every epoch, 30.1369863 NAM** will be allocated to each tnam address of the **166 active validators**. Assuming this set of cPGF token \"streams\" will end in one year, the **total amount of NAM per validator will be 44,000 NAM**.\n\n#### Notes\n1. While this is part of the PGF budget, the PGF budget does not inflate the NAM supply until it is allocated. If approved, this will introduce 0.67% supply inflation over the year.\n2. There is [not yet a built-in way to end cPGF](https://github.com/namada-net/namada/issues/4104), so a follow-up PGF proposal will be needed to stop this cPGF after one year; exact date to be determined at proposal launch.\n\n#### Recipient List\nhttps://github.com/Luminara-Hub/govproposals/commit/9f2f88579aa96572e5414b560cb1e96a92eb9169\n\n(Github because the list exceeds governance proposal limit) \n\n#### Exclusions\n- Unit 410 [2]\ttnam1q9vnysn3jj9l3rnucr0zt4jpuy224wdl7c0gezrj\n- Shutdown 1st july — Please Redelegate\ttnam1qyj7mwkpc9tg4mljg76wxshwq2rxlskx7c0tlx4c\n- ValidityOps#2\ttnam1q98jzz306gldxvtg5quwnej4zvna6pgnquk2t4dc\n- [ZKV](https://x.com/zkv_xyz/status/1943628922362503411)\ttnam1qxr8n7u36jcf82d0ccp0flshpwhz3d3xjv5ryn44\n- EquinoxDao (jailed > 10 days)\ttnam1q9zemh43mx2dwtlsrfgjanzzut3j5lepaq7uacug\n- Infraspear (jailed > 10 days)\ttnam1qx03fx58wtm6e2g5yt4uu9jpy702h4pjuy9a7653\n\n\n## Context\nMost staking inflation (~95%) goes to passive delegators, versus active validators with immediate operating costs.\n\nWe have a relatively large, diverse set of validators. Namada doesn't need to ensure a particularly large set of validators, but it would be helpful to have more time to continue to enable, surface and reward high-value-add validators so that they remain active. \n\nDirect support is a much more capital-efficient way to increase validator operator runway than by increasing staking inflation. The goal is to extend operator runway to sustain diversity in preparation for a more targeted, meritocratic rewards model.\n\n## Future\nIf this proposal passes, there should be a proposal to end this subsidy after one year (Luminara intends to do this). There may also be intermediary proposal(s) to remove subsidies from inactive validators.\n\nAs a community, Namada should always be improving our collective ability to effectively target and reward active, value-add participants to sustain Namada's roadmap and mission-momentum.",
+  "discussions-to": "https://forum.namada.net/t/namada-validator-cpgf-1-year-subsidy-0-67-inflation/1819",
+  "motivation": "Sustain the current validator set to surface and reward high-value-add validators.",
+  "requires": "0",
+  "title": "cPGF - Namada Validator 1-Year Subsidy - 0.67% inflation"
+},
+                "Start_Epoch": "955",
+                "End_Epoch": "979",
+                "Activation_Epoch": "980",
+                "Status": "ended",
+                "Data": "",
+                "Result": "Prop 29 involved 889 addresses with resuts: 842 yays | 9 nays | 38 abstains"
+            },
+            {
+                "Id": 30,
+                "Type": "Default with Wasm",
+                "Author": "tnam1qrk6vlc9wy95p2hwntwejm8g4kjc39ha65y2vucx",
+                "Content": {
+  "details": "This proposal contains to code to update the `tx_withdraw` wasm in storage. With this new update, any withdraw tx will emit an event that contains the withdrawn NAM token amount. This is similar to the update executed for `tx_claim_rewards` in Prop #11. Please see the forum post linked in `discussions-to` below for more details.\n\nThe proposal code used to generate the WASM within this proposal can be found here: https://github.com/namada-net/namada-governance-upgrades/blob/b3221f02b26ab5c7e08cef4496930b0f632ca4f0/update-tx-withdraw/src/lib.rs.\n\nThe new tx_withdraw wasm itself was generated with the changes within: https://github.com/namada-net/namada/pull/4778",
+  "discussions-to": "https://forum.namada.net/t/proposal-update-tx-withdraw-on-chain-with-events/1848",
+  "title": "Update tx_withdraw wasm on-chain"
+},
+                "Start_Epoch": "1073",
+                "End_Epoch": "1097",
+                "Activation_Epoch": "1098",
+                "Status": "ended",
+                "Data": "E3FBA2A2D8C42894822020628F8D27B6857EDC5A5373A2B327DBCE1A2AA0DC2D",
+                "Result": "Prop 30 involved 335 addresses with resuts: 332 yays | 2 nays | 1 abstains"
+            },
+            {
+                "Id": 31,
+                "Type": "Default with Wasm",
+                "Author": "tnam1qq92nknz9u82aewcw3k0nrp7t7d5ytgskcjkyduk",
+                "Content": {
+  "details": "This proposal reduces staking inflation from 5% to 2.75% and lowers the target staking ratio from 55% to 45%. The goal is to eliminate unnecessary dilution now that security thresholds are met, while freeing issuance to incentivize privacy usage through Shielded Rewards. By rebalancing inflation toward real adoption, this change reduces wasteful issuance and strengthens the long-term sustainability of the network.\n\nThe file used to produce the attached wasm can be found here: https://github.com/namada-net/namada-governance-upgrades/blob/9ea5c5a6d8d29a2866e83f73ece069d4658cd822/increase_target_staked_ratio/src/lib.rs",
+  "title": "Reduce staking inflation from 5% to 2.75%"
+},
+                "Start_Epoch": "1154",
+                "End_Epoch": "1173",
+                "Activation_Epoch": "1174",
+                "Status": "ended",
+                "Data": "B21D4872EF9BA948874D53EC5F175EDE3CA4AA10F52C42E7AF099D78A86BF890",
+                "Result": "Prop 31 involved 304 addresses with resuts: 291 yays | 11 nays | 2 abstains"
+            },
+            {
+                "Id": 32,
+                "Type": "Default with Wasm",
+                "Author": "tnam1qq92nknz9u82aewcw3k0nrp7t7d5ytgskcjkyduk",
+                "Content": {
+  "details": "This proposal updates the Multi-Asset Shielded Pool incentive mechanism by recalibrating the Proportional Gain (p_gain_nom) and Derivative Gain (d_gain_nom) values for incentivized assets. These changes aim to ensure that shielded pool rewards respond more predictably, correcting cases where adjustments were too slow or too fast.\n\nIn addition, we propose reducing Shielded Set Reward (SSR) targets across assets to better align inflation incentives with observed usage and privacy needs. This calibration narrows the scope of incentives to the most active pools while reducing inflation costs on underutilized assets.\n\nThe file used to produce the attached wasm can be found here: https://github.com/namada-net/namada-governance-upgrades/blob/5fad42152f631607a7763352f230040629f7d3e4/phase4/src/lib.rs",
+  "discussions-to": "https://forum.namada.net/t/adjust-the-masp-gain-and-ssr-target-values/1847",
+  "title": "Update Shielded Inflation: MASP Gain Calibration & SSR Target Adjustments"
+},
+                "Start_Epoch": "1154",
+                "End_Epoch": "1173",
+                "Activation_Epoch": "1174",
+                "Status": "ended",
+                "Data": "EEF0B745190917D5C64E1F042E0F8EB9BD062D54522B84C42957F1194D989DD2",
+                "Result": "Prop 32 involved 302 addresses with resuts: 291 yays | 7 nays | 4 abstains"
+            },
+            {
+                "Id": 33,
+                "Type": "Default with Wasm",
+                "Author": "tnam1qq92nknz9u82aewcw3k0nrp7t7d5ytgskcjkyduk",
+                "Content": {
+  "authors": "Veil",
+  "details": "This proposal looks to add support for USDN (Noble’s native yield-bearing stablecoin) to Namada’s Multi-Asset Shielded Pool (MASP), whitelist USDN as a gas token, and set initial rate-limit parameters. Adding USDN would make it the first yield-bearing stable asset in the MASP, enabling shielded deposits that generate real yield and expanding the economic functionality of shielded assets. Whitelisting USDN for gas ensures a seamless user experience, allowing transactions to be paid directly in USDN. The initial parameters are a 5M global mint limit, 1M per-epoch limit, and a gas price of 1 uusdn per gas unit.\n\nThe proposal code used to generate the attached wasm can be found here: https://github.com/namada-net/namada-governance-upgrades/blob/3a4a42da8bb230678b9396daa77c5eef97704d96/phase3/src/lib.rs",
+  "discussions-to": "https://forum.namada.net/t/proposal-to-add-usdn-support-to-the-masp/1871",
+  "title": "Add USDN support to the MASP, whitelist USDN as a gas token, and establish initial rate-limit parameters."
+},
+                "Start_Epoch": "1281",
+                "End_Epoch": "1312",
+                "Activation_Epoch": "1313",
+                "Status": "ended",
+                "Data": "B03AF811B89788007959A66B9E8547D576D66ADB8172FCD10A3B2B923CDF6D0B",
+                "Result": "Prop 33 involved 352 addresses with resuts: 341 yays | 9 nays | 2 abstains"
+            },
+altozk@s239695:~/NamadaDashboard/Governance$ ls
+countVotes.sh  getPropDetails_dev.sh  getPropDetails.sh  PropsToJSON.sh  result  result.md  voteSummary.sh
+altozk@s239695:~/NamadaDashboard/Governance$ rm result
+altozk@s239695:~/NamadaDashboard/Governance$ rm result.md 
+altozk@s239695:~/NamadaDashboard/Governance$ ls
+countVotes.sh  getPropDetails_dev.sh  getPropDetails.sh  PropsToJSON.sh  voteSummary.sh
+altozk@s239695:~/NamadaDashboard/Governance$ ./getPropDetails_dev.sh > result
+altozk@s239695:~/NamadaDashboard/Governance$ ls
+countVotes.sh  getPropDetails_dev.sh  getPropDetails.sh  PropsToJSON.sh  result  voteSummary.sh
+altozk@s239695:~/NamadaDashboard/Governance$ cat result 
+Prop 26 involved 3641 addresses with resuts: 3611 yays | 17 nays | 13 abstains
+Prop 27 involved 1103 addresses with resuts: 1093 yays | 6 nays | 4 abstains
+Prop 28 involved 1000 addresses with resuts: 993 yays | 2 nays | 5 abstains
+Prop 29 involved 889 addresses with resuts: 842 yays | 9 nays | 38 abstains
+Prop 30 involved 335 addresses with resuts: 332 yays | 2 nays | 1 abstains
+Prop 31 involved 304 addresses with resuts: 291 yays | 11 nays | 2 abstains
+Prop 32 involved 302 addresses with resuts: 291 yays | 7 nays | 4 abstains
+Prop 33 involved 352 addresses with resuts: 341 yays | 9 nays | 2 abstains
+Prop 34 involved 288 addresses with resuts: 280 yays | 5 nays | 3 abstains
+Prop 35 involved 311 addresses with resuts: 311 yays | 0 nays | 0 abstains
+Prop 36 involved 275 addresses with resuts: 242 yays | 28 nays | 5 abstains
+
+[
+    {
+        "Last_committed_epoch": 1391,
         "Proposal": [
             {
                 "Id": 26,
@@ -186,9 +351,9 @@
                 "Start_Epoch": "1364",
                 "End_Epoch": "1388",
                 "Activation_Epoch": "1389",
-                "Status": "on-going",
+                "Status": "ended",
                 "Data": "72DF5BEF3E5924A447A8085E5DAD2608E3C7A3596812B6F05F88684C5C36021A",
-                "Result": "Prop 36 involved 267 addresses with resuts: 234 yays | 28 nays | 5 abstains"
+                "Result": "Prop 36 involved 275 addresses with resuts: 242 yays | 28 nays | 5 abstains"
             }
         ]
     }
