@@ -9614,7 +9614,7 @@
   },
     {
         "Date": "12/22/2025",
-        "Supply": [
+        "Total_Supply": [
             {
                 "id": "Namada",
                 "totalSupply": "1116492517.868696",
