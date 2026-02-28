@@ -35,7 +35,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  TimeScale
+  TimeScale,
 );
 
 interface RewardData {
@@ -54,7 +54,7 @@ const RewardChart = (props: RewardChartProps) => {
   const [error, setError] = useState<string | null>(null);
   const [namadaRewards, setNamadaRewards] = useState<RewardData[]>([]);
   const [timeRange, setTimeRange] = useState<"7d" | "30d" | "90d" | "all">(
-    "90d"
+    "90d",
   );
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const RewardChart = (props: RewardChartProps) => {
       } catch (err) {
         console.error("Fetch error:", err);
         setError(
-          err instanceof Error ? err.message : "Failed to load reward data"
+          err instanceof Error ? err.message : "Failed to load reward data",
         );
       } finally {
         setLoading(false);
@@ -112,7 +112,7 @@ const RewardChart = (props: RewardChartProps) => {
   // Process data for chart
   const chartData = {
     labels: filteredData.map((item) =>
-      parse(item.Date, "MM/dd/yyyy", new Date())
+      parse(item.Date, "MM/dd/yyyy", new Date()),
     ),
     datasets: [
       {
@@ -126,7 +126,7 @@ const RewardChart = (props: RewardChartProps) => {
       {
         label: "Annual Staking Rewards (%)",
         data: filteredData.map(
-          (item) => parseFloat(item.Annual_Staking_Rewards_Ratio) * 100
+          (item) => parseFloat(item.Annual_Staking_Rewards_Ratio) * 100,
         ),
         borderColor: "rgb(54, 162, 235)",
         backgroundColor: "rgba(54, 162, 235, 0.2)",
@@ -191,7 +191,7 @@ const RewardChart = (props: RewardChartProps) => {
           text: "Staked Ratio & Rewards (%)",
           color: "gray",
         },
-        min: 30,
+        min: 20,
         max: 50,
       },
       y1: {
@@ -373,7 +373,8 @@ const RewardChart = (props: RewardChartProps) => {
                 Staked Ratio -{" "}
                 {(
                   parseFloat(
-                    namadaRewards[namadaRewards.length - 1]?.Staked_Ratio || "0"
+                    namadaRewards[namadaRewards.length - 1]?.Staked_Ratio ||
+                      "0",
                   ) * 100
                 ).toFixed(2)}
                 %{" "}
@@ -383,9 +384,9 @@ const RewardChart = (props: RewardChartProps) => {
                     parse(
                       namadaRewards[namadaRewards.length - 1]?.Date || "",
                       "MM/dd/yyyy",
-                      new Date()
+                      new Date(),
                     ),
-                    "PP"
+                    "PP",
                   )}
                   )
                 </span>
@@ -404,7 +405,7 @@ const RewardChart = (props: RewardChartProps) => {
                 {(
                   parseFloat(
                     namadaRewards[namadaRewards.length - 1]
-                      ?.Annual_Staking_Rewards_Ratio || "0"
+                      ?.Annual_Staking_Rewards_Ratio || "0",
                   ) * 100
                 ).toFixed(3)}
                 %
@@ -422,7 +423,7 @@ const RewardChart = (props: RewardChartProps) => {
                 {(
                   parseFloat(
                     namadaRewards[namadaRewards.length - 1]?.Inflation_Rate ||
-                      "0"
+                      "0",
                   ) * 100
                 ).toFixed(4)}
                 %
