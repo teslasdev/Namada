@@ -185,7 +185,7 @@ const RewardChart = (props: RewardChartProps) => {
       y: {
         type: "linear" as const,
         display: true,
-        position: "left" as const,
+        position: "right" as const,
         title: {
           display: true,
           text: "Staked Ratio & Rewards (%)",
@@ -197,7 +197,7 @@ const RewardChart = (props: RewardChartProps) => {
       y1: {
         type: "linear" as const,
         display: true,
-        position: "right" as const,
+        position: "left" as const,
         title: {
           display: true,
           text: "Inflation Rate (%)",
