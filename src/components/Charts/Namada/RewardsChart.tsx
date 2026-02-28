@@ -188,7 +188,7 @@ const RewardChart = (props: RewardChartProps) => {
         position: "right" as const,
         title: {
           display: true,
-          text: "Staked Ratio & Rewards (%)",
+          text: "Staked Ratio (%)",
           color: "gray",
         },
         min: 20,
@@ -200,7 +200,7 @@ const RewardChart = (props: RewardChartProps) => {
         position: "left" as const,
         title: {
           display: true,
-          text: "Inflation Rate (%)",
+          text: "Inflation Rate & Rewards (%)",
         },
         min: 0,
         max: 20,
