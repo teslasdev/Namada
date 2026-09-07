@@ -94,7 +94,7 @@ export async function getLastUpdatedDate(
     if (!res.ok) return "N/A";
     const d = await res.json();
 
-    console.log('djson' , d)
+    console.log("djson", d);
     return d[0]?.commit?.committer?.date ?? "N/A";
   } catch {
     return "N/A";
@@ -105,8 +105,8 @@ export function getCommitUrlForTab(tabLabel: string): string {
   const urlMap: Record<string, string> = {
     "total supply": DATE_URL.namadaSupplyUrl,
     "Shielded Supply": DATE_URL.namadaSupplyUrl,
-    "transparant supply" : DATE_URL.namadaSupplyUrl,
-    "rewards": DATE_URL.namadaRewardUrl,
+    "transparant supply": DATE_URL.namadaSupplyUrl,
+    rewards: DATE_URL.namadaRewardUrl,
   };
 
   return urlMap[tabLabel] || DATE_URL.namadaSupplyUrl;

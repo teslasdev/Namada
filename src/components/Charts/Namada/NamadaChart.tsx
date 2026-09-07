@@ -12,6 +12,7 @@ import RewardChart from "./RewardsChart";
 import TokenEcosystem from "./TokenEcosystem";
 import ShieldedTokenEcosystem from "./ShieldedTokenEcosystem";
 import TransparentTokenEcosystem from "./TransparentTokenEcosystem";
+import ProposalsChart from "./ProposalsChart";
 
 type NamadaChartProps = {
   lastUpdated: Date;
@@ -37,6 +38,7 @@ function NamadaChart(props: NamadaChartProps) {
     "Shielded Supply",
     "Transparent Supply",
     "Rewards",
+    "Proposals",
   ];
 
   return (
@@ -93,6 +95,10 @@ function NamadaChart(props: NamadaChartProps) {
 
                   <TabsContent value="rewards" activeTab={activeTab}>
                     <RewardChart divChartRef={props.divChartRef} />
+                  </TabsContent>
+
+                  <TabsContent value="proposals" activeTab={activeTab}>
+                    <ProposalsChart divChartRef={props.divChartRef} />
                   </TabsContent>
 
                   <ChartFooter
