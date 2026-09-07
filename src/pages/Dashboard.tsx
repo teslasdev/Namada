@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import {
-  ArrowLeft,
   ArrowUpRight,
   CheckCircle2,
   ChevronDown,
+  Menu,
   Shield,
+  X,
 } from "lucide-react";
 import { NetworkDashboard } from "./Home";
 import { DATA_URL } from "../components/lib/chart/data-url";
@@ -20,19 +21,19 @@ const fetch = (input: RequestInfo | URL, init?: RequestInit) => {
   return browserFetch(url, init).then(async (response) => {
     if (url === blockchairPriceApi) {
       const payload = (await response.clone().json()) as {
-        context?: {
+        data?: {
           market_price_usd?: number;
           market_price_btc?: number;
           market_cap_usd?: number;
         };
       };
-      const context = payload.context || {};
+      const data = payload.data || {};
       return new Response(
         JSON.stringify({
           namada: {
-            usd: context.market_price_usd,
-            btc: context.market_price_btc,
-            usd_market_cap: context.market_cap_usd,
+            usd: data.market_price_usd,
+            btc: data.market_price_btc,
+            usd_market_cap: data.market_cap_usd,
           },
         }),
         { status: response.status, headers: response.headers },
@@ -89,6 +90,12 @@ type PriceSnapshot = {
     usd_market_cap?: number;
     usd_24h_change?: number;
   };
+};
+type RewardPoint = {
+  Date: string;
+  Staked_Ratio: string;
+  Annual_Staking_Rewards_Ratio: string;
+  Inflation_Rate: string;
 };
 
 export function GovernanceProposals() {
@@ -260,6 +267,39 @@ function ProtocolParameters() {
   );
 }
 
+function SupplyChart({ rows, value }: { rows: SupplyPoint[]; value: (row: SupplyPoint) => number }) {
+  const max = Math.max(...rows.map(value), 1);
+  const ticks = [max, Math.round(max * 0.75), Math.round(max * 0.5), Math.round(max * 0.25), 0];
+  return (
+    <>
+      <div className="axis-chart supply-axis-chart">
+        <div className="y-axis">{ticks.map((tick) => <span key={tick}>{tick.toLocaleString()}</span>)}</div>
+        <div className="plot-area">
+          <div className="grid-lines">{ticks.map((tick) => <i key={tick} />)}</div>
+          <div className="participation-bars">{rows.map((row, index) => { const amount = value(row); return <div className="participation-bar-column" key={row.Date}><div className="participation-bar" style={{ height: `${Math.max(2, amount / max * 100)}%` }} title={`${row.Date}: ${amount.toLocaleString()} NAM`} /><small>{row.Date.slice(0, 7)}</small><span className="sr-only">Data point {index + 1}</span></div>; })}</div>
+        </div>
+      </div>
+      <div className="axis-labels"><span>Date</span><span>NAM supply</span></div>
+    </>
+  );
+}
+
+function RewardsChart() {
+  const [rows, setRows] = useState<RewardPoint[]>([]);
+  const [metric, setMetric] = useState<"Staked_Ratio" | "Annual_Staking_Rewards_Ratio" | "Inflation_Rate">("Annual_Staking_Rewards_Ratio");
+  const [range, setRange] = useState<"14" | "30" | "90" | "all">("14");
+  useEffect(() => {
+    fetch(DATA_URL.namadaRewardUrl).then((response) => response.json()).then(setRows).catch(() => setRows([]));
+  }, []);
+  const visible = range === "all" ? rows : rows.slice(-Number(range));
+  const value = (row: RewardPoint) => Number(row[metric]) * 100;
+  const max = Math.max(...visible.map(value), 1);
+  const latest = rows[rows.length - 1];
+  const ticks = [max, Math.round(max * .75 * 100) / 100, Math.round(max * .5 * 100) / 100, Math.round(max * .25 * 100) / 100, 0];
+  const labels = { Staked_Ratio: "Staked ratio", Annual_Staking_Rewards_Ratio: "Annual staking rewards", Inflation_Rate: "Inflation rate" };
+  return <div className="reward-chart-card"><div className="reward-chart-heading"><div><span className="metric-label">Staking economics</span><h3>Staked ratio, rewards & inflation</h3></div><div className="reward-filters"><label>Metric <select value={metric} onChange={(event) => setMetric(event.target.value as typeof metric)}><option value="Annual_Staking_Rewards_Ratio">Annual rewards</option><option value="Staked_Ratio">Staked ratio</option><option value="Inflation_Rate">Inflation rate</option></select></label><label>Days <select value={range} onChange={(event) => setRange(event.target.value as typeof range)}><option value="14">Last 14 days</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="all">All history</option></select></label></div></div>{visible.length ? <><div className={`axis-chart reward-axis-chart${range === "all" ? " is-expanded" : ""}`}><div className="y-axis">{ticks.map((tick) => <span key={tick}>{tick.toFixed(2)}%</span>)}</div><div className="plot-area"><div className="grid-lines">{ticks.map((tick) => <i key={tick} />)}</div><div className="participation-bars">{visible.map((row) => <div className="participation-bar-column" key={row.Date}><div className="participation-bar" style={{ height: `${Math.max(2, value(row) / max * 100)}%` }} title={`${row.Date}: ${value(row).toFixed(3)}%`} /><small>{row.Date.slice(0, 7)}</small></div>)}</div></div></div><div className="axis-labels"><span>Date</span><span>{labels[metric]} (%)</span></div><div className="reward-summary"><div><span>Current {labels[metric].toLowerCase()}</span><b>{latest ? `${value(latest).toFixed(3)}%` : "—"}</b></div><div><span>Latest snapshot</span><b>{latest?.Date || "—"}</b></div><div><span>Data points</span><b>{rows.length}</b></div></div></> : <div className="participation-empty">Loading rewards data…</div>}</div>;
+}
+
 function ChartsWorkspace() {
   const [price, setPrice] = useState<PriceSnapshot | null>(null);
   const [supplyRows, setSupplyRows] = useState<SupplyPoint[]>([]);
@@ -279,6 +319,7 @@ function ChartsWorkspace() {
       fetch(DATA_URL.namadaSupplyUrl).then((response) => response.json()),
     ])
       .then(([market, supply]) => {
+        console.log("Fetched market data:", market);
         setPrice(market);
         setSupplyRows(supply);
       })
@@ -296,7 +337,6 @@ function ChartsWorkspace() {
     return Number(token?.totalSupply || 0);
   };
   const rows = supplyRows.slice(-12);
-  const max = Math.max(...rows.map(chartValue), 1);
   return (
     <section className="charts-workspace section-wrap">
       <div className="metrics-heading">
@@ -381,26 +421,8 @@ function ChartsWorkspace() {
               </span>
             </div>
             {chart === "Rewards" ? (
-              <div className="chart-empty">
-                This chart is connected to the Namada data registry and will
-                populate when historical rewards snapshots are available.
-              </div>
-            ) : (
-              <div className="large-bars">
-                {rows.map((row) => (
-                  <div className="large-bar-column" key={row.Date}>
-                    <div
-                      className="large-bar"
-                      style={{
-                        height: `${Math.max(5, (chartValue(row) / max) * 100)}%`,
-                      }}
-                      title={`${row.Date}: ${chartValue(row).toLocaleString()} NAM`}
-                    />
-                    <small>{row.Date.slice(0, 5)}</small>
-                  </div>
-                ))}
-              </div>
-            )}
+              <RewardsChart />
+            ) : <SupplyChart rows={rows} value={chartValue} />}
           </div>
         )}
       </div>
@@ -701,6 +723,7 @@ function ValidatorTable() {
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("parameters");
+  const [menuOpen, setMenuOpen] = useState(false);
   const tabs = [
     { id: "parameters", label: "Protocol Parameters" },
     { id: "proposals", label: "Governance Proposals" },
@@ -718,17 +741,17 @@ export default function Dashboard() {
             ZecHub <em>/</em> Namada
           </span>
         </a>
-        <a className="dashboard-back" href="/">
-          <ArrowLeft size={15} /> Learning hub
-        </a>
-        <a
-          className="text-link dashboard-source"
-          href="https://docs.namada.net"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Official docs <ArrowUpRight size={14} />
-        </a>
+        <nav className={menuOpen ? "main-nav open" : "main-nav"} aria-label="Primary navigation">
+          <a href="/" onClick={() => setMenuOpen(false)}>Learn</a>
+          <a href="/dashboard" onClick={() => setMenuOpen(false)}>Dashboard</a>
+          <a href="/#participate" onClick={() => setMenuOpen(false)}>Participate</a>
+          <a href="/#build" onClick={() => setMenuOpen(false)}>Build</a>
+          <a href="https://zechub.wiki" target="_blank" rel="noreferrer">ZecHub <ArrowUpRight size={13} /></a>
+        </nav>
+        <div className="header-actions">
+          <a className="text-link" href="https://bounties.zechub.wiki" target="_blank" rel="noreferrer">Bounties <ArrowUpRight size={15} /></a>
+          <button className="menu-button" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
+        </div>
       </header>
       <main className="dashboard-main">
         <div className="dashboard-intro section-wrap">
